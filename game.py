@@ -1,14 +1,8 @@
 import random
-# Display player choices
-def showOptions():  
-  print('Choose one:')
-  print('(r)Rock')
-  print('(p)Paper')
-  print('(s)Scissors')
-  print('(q)Quit\n')
 
-showOptions()
-
+user_options = ['(r)Rock','(p)Paper','(s)Scissors','(q)Quit']
+comp_options = ['Rock','Paper','Scissors']
+winning_cases = [('Rock','Scissors'),('Paper','Rock'),('Scissors','Paper')]
 valid_choices = {
   'rock': 'Rock',
   'paper': 'Paper',
@@ -20,9 +14,13 @@ valid_choices = {
   'q': 'quit'
 }
 
-comp_choices = ['Rock','Paper','Scissors']
+# Display player choices
+def showOptions():  
+  print('Choose one:')
+  for x in user_options:
+    print(x)
 
-winning_cases = [('Rock','Scissors'),('Paper','Rock'),('Scissors','Paper')]
+showOptions()
 
 player_score = 0
 comp_score = 0
@@ -42,7 +40,7 @@ while True:
   player = valid_choices[player_choice]
 
   # Generate random number for comp choice 
-  comp = comp_choices[random.randint(0,2)]
+  comp = comp_options[random.randint(0,2)]
   
   #Display player and comp choices
   print('----------------------------')
